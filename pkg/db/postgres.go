@@ -14,7 +14,6 @@ func (p *PostgreSQL) Connect(c Config) {
 	connectionLine := "postgres://%v:%v@%v:%v/%v?sslmode=%v"
 	connectionLine = fmt.Sprintf(connectionLine,
 		c.GetUser(), c.GetPassword(), c.GetHost(), c.GetPort(), c.GetDatabase(), c.GetSSL())
-	fmt.Println(connectionLine)
 	drive, err := sql.Open("postgres", connectionLine)
 	if err != nil {
 		panic(err)

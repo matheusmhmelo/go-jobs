@@ -30,5 +30,7 @@ func NewServer() http.Handler {
 	r.HandleFunc("/job/{id}", request.PreRequest(handler.UpdateJob)).Methods(http.MethodPut)
 	r.HandleFunc("/job/{id}", request.PreRequest(handler.RemoveJob)).Methods(http.MethodDelete)
 
+	r.HandleFunc("/jobs", handler.SearchJobs).Methods(http.MethodGet)
+
 	return handlers.CORS(header, methods, origins)(r)
 }

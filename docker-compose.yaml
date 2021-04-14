@@ -12,6 +12,7 @@ services:
       PORT: ${PORT}
       ACCESS_SECRET: ${ACCESS_SECRET}
       CONTEXT_KEY: ${CONTEXT_KEY}
+      RESULTS_PER_PAGE: ${RESULTS_PER_PAGE}
       DB_USER: ${DB_USER}
       DB_PASS: ${DB_PASS}
       DB_HOST: ${DB_HOST}
