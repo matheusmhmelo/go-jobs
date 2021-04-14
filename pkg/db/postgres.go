@@ -11,9 +11,10 @@ type PostgreSQL struct {
 }
 
 func (p *PostgreSQL) Connect(c Config) {
-	connectionLine := "host=%s port=%s user=%s password=%s dbname=%s sslmode=%s"
+	connectionLine := "postgres://%v:%v@%v:%v/%v?sslmode=%v"
 	connectionLine = fmt.Sprintf(connectionLine,
-		c.GetHost(), c.GetPort(), c.GetUser(), c.GetPassword(), c.GetDatabase(), c.GetSSL())
+		c.GetUser(), c.GetPassword(), c.GetHost(), c.GetPort(), c.GetDatabase(), c.GetSSL())
+	fmt.Println(connectionLine)
 	drive, err := sql.Open("postgres", connectionLine)
 	if err != nil {
 		panic(err)
